@@ -5,15 +5,7 @@ import { COLORS, WEIGHTS } from "../../constants";
 import { formatPrice, pluralize, isNewShoe } from "../../utils";
 import Spacer from "../Spacer";
 
-const ShoeCard = ({
-  slug,
-  name,
-  imageSrc,
-  price,
-  salePrice,
-  releaseDate,
-  numOfColors,
-}) => {
+const ShoeCard = ({ slug, name, imageSrc, price, salePrice, releaseDate, numOfColors }) => {
   // There are 3 variants possible, based on the props:
   //   - new-release
   //   - on-sale
@@ -45,8 +37,7 @@ const ShoeCard = ({
           <Price
             style={{
               "--color": variant === "on-sale" ? COLORS.gray[700] : undefined,
-              "--text-decoration":
-                variant === "on-sale" ? "line-through" : undefined,
+              "--text-decoration": variant === "on-sale" ? "line-through" : undefined,
             }}
           >
             {formatPrice(price)}
@@ -54,9 +45,7 @@ const ShoeCard = ({
         </Row>
         <Row>
           <ColorInfo>{pluralize("Color", numOfColors)}</ColorInfo>
-          {variant === "on-sale" ? (
-            <SalePrice>{formatPrice(salePrice)}</SalePrice>
-          ) : undefined}
+          {variant === "on-sale" ? <SalePrice>{formatPrice(salePrice)}</SalePrice> : undefined}
         </Row>
       </Wrapper>
     </Link>
@@ -124,4 +113,5 @@ const SaleFlag = styled(Flag)`
 const NewFlag = styled(Flag)`
   background-color: ${COLORS.secondary};
 `;
+
 export default ShoeCard;

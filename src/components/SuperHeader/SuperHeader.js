@@ -10,9 +10,7 @@ import Icon from "../Icon";
 const SuperHeader = () => {
   return (
     <Wrapper>
-      <MarketingMessage>
-        Free shipping on domestic orders over $75!
-      </MarketingMessage>
+      <MarketingMessage>Free shipping on domestic orders over $75!</MarketingMessage>
       <SearchInput />
       <HelpLink href='/help'>Help</HelpLink>
       <UnstyledButton>
@@ -24,7 +22,8 @@ const SuperHeader = () => {
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  // The following line is unnecessary
+  /* justify-content: space-between; */
   padding: 0 32px;
   font-size: 0.875rem;
   color: ${COLORS.gray[300]};
